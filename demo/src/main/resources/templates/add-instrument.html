@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #fdf2f8;">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow p-4 border-0" style="border-top: 5px solid #d63384;">
+                <h3 class="mb-4 fw-bold" style="color: #d63384;">🎸 Nouvel Instrument</h3>
+
+                <form th:action="@{/instruments/save}" th:object="${instrument}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Nom de l'instrument</label>
+                        <input type="text" th:field="*{nom}" class="form-control" placeholder="Ex: Piano" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Famille</label>
+                        <input type="text" th:field="*{famille}" class="form-control" placeholder="Cordes, Vents...">
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" th:field="*{disponibilite}" class="form-check-input" id="disp">
+                        <label class="form-check-label" for="disp">Disponible immédiatement</label>
+                    </div>
+
+                    <button type="submit" class="btn w-100" style="background-color: #d63384; color: white;">Enregistrer</button>
+                    <a href="/instruments" class="btn btn-light w-100 mt-2">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
